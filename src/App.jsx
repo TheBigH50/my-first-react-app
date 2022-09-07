@@ -1,11 +1,10 @@
-import "./App.css";
 import React from "react";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      list: ["ready", "set", "go"],
+      list: ["ready", "set", "GO"],
       text: "",
     };
     this.onSubmit = this.onSubmit.bind(this);
