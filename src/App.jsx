@@ -1,4 +1,5 @@
 import React from "react";
+import FilmsList from "./filmList";
 
 class App extends React.Component {
   constructor(props) {
@@ -34,6 +35,7 @@ class App extends React.Component {
             <li key={idx}>{text}</li>
           ))}
         </ul>
+        <FilmsList />
       </div>
     );
   }
