@@ -16,11 +16,11 @@ class FilmsList extends Component {
   componentDidMount() {
     this.getFilms();
   }
-  
+
   render() {
-   // if (this.state.hasLoaded) {
-     // return <p>Loading...</p>;
-  //  }
+    if (!this.state.hasLoaded) {
+      return <p>Loading...</p>;
+    }
 
     return (
       <ul>
