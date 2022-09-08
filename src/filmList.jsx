@@ -13,6 +13,10 @@ class FilmsList extends Component {
       .catch((error) => console.error(error));
   }
 
+  componentDidMount() {
+    this.getFilms();
+  }
+  
   render() {
    // if (this.state.hasLoaded) {
      // return <p>Loading...</p>;
