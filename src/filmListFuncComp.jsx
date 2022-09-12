@@ -17,8 +17,8 @@ getFilms();
 
     return (
         <ul>
-       {list.map((films) => (
-              <li key={films.id}>{films.title}</li>
+       {list.map((film) => (
+              <li key={film.id}>{film.title}</li>
             ))}
         </ul>
       );

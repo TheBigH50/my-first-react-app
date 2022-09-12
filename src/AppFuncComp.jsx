@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import FilmsListFuncComp from "filmListFuncComp";
+import { useState } from "react";
+import FilmsListFuncComp from "./filmListFuncComp";
 
 function AppFuncComp(props) {
 
