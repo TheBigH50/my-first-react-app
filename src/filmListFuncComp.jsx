@@ -7,7 +7,7 @@ function FilmsListFuncComp(props) {
 function getFilms() {
     fetch("https://ghibliapi.herokuapp.com/films")
     .then((res) => res.json())
-    .then((films) => setList({films}))
+    .then((films) => setList(films))
     .catch((error) => console.error(error));    
 }
 
