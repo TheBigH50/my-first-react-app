@@ -35,4 +35,4 @@ function HomePage(props) {
   );
 }
 
-export default AppFuncComp;
+export default HomePage;

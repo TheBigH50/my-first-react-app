@@ -27,4 +27,4 @@ getFilms();
       );
 }
 
-export default FilmsListFuncComp;
+export default FilmsPage;
