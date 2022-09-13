@@ -1,4 +1,4 @@
-import { BrowserRouter, Link, Routes, Route, } from "react-router-dom";
+import { BrowserRouter, NavLink, Routes, Route, } from "react-router-dom";
 import { HomePage, FilmsPage } from "./pages"
 
 function App(props) {
@@ -8,10 +8,10 @@ return(
   <nav>
     <ul>
       <li>
-        <Link to="/">Home</Link>
+        <NavLink to={"/"}>Home</NavLink>
       </li>
       <li>
-        <Link to="/films">Films</Link>
+        <NavLink to={"/films"}>Films</NavLink>
       </li>
     </ul>
   </nav>
