@@ -1,44 +1,26 @@
-import React from "react";
-import FilmsList from "./filmList";
+import { BrowserRouter, NavLink, Routes, Route, Link } from "react-router-dom";
+import { HomePage, FilmsPage } from "./pages"
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      list: ["ready", "set", "GO"],
-      text: "",
-    };
-    this.onSubmit = this.onSubmit.bind(this);
-  }
+function App(props) {
 
-  onSubmit(event) {
-    event.preventDefault();
+return(
+  <BrowserRouter>
+  <nav>
+    <ul>
+      <li>
+        <Link to="/">Home</Link>
+      </li>
+      <li>
+        <Link to="/films">Films</Link>
+      </li>
+    </ul>
+  </nav>
+  <Routes>
+    <Route path="/" element={<HomePage />} />
+    <Route path="/films" element={<FilmsPage /> } />
+  </Routes>
+  
+  </BrowserRouter>
+)
 
-    let newList = [...this.state.list, this.state.text];
-    this.setState({ list: newList, text: "" });
-  }
-
-  render() {
-    return (
-      <div>
-        <h1>Hello World</h1>
-        <form onSubmit={this.onSubmit}>
-          <input
-            type="text"
-            value={this.state.text}
-            onChange={(e) => this.setState({ text: e.target.value })}
-          />
-          <button type="submit">Add</button>
-        </form>
-        <ul>
-          {this.state.list.map((text, idx) => (
-            <li key={idx}>{text}</li>
-          ))}
-        </ul>
-        <FilmsList />
-      </div>
-    );
-  }
 }
-
-export default App;
