@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { filterFilmsByDirector } from "../helpers/film.helpers";
 
 function FilmsPage(props) {
   let [list, setList] = useState([]);
@@ -14,6 +15,8 @@ function FilmsPage(props) {
   useEffect(() => {
     getFilms();
   }, []);
+
+let filteredFilms = filterFilmsByDirector(list, searchDirector);
 
   return (
     <div>
@@ -32,7 +35,7 @@ function FilmsPage(props) {
         </div>
       </form>
       <ul>
-        {list.map((film) => (
+        {filteredFilms.map((film) => (
           <li key={film.id}>{film.title}</li>
         ))}
       </ul>
