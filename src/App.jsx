@@ -1,4 +1,4 @@
-import { BrowserRouter, NavLink, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Link, Routes, Route, } from "react-router-dom";
 import { HomePage, FilmsPage } from "./pages"
 
 function App(props) {
@@ -24,3 +24,5 @@ return(
 )
 
 }
+
+export default App;
