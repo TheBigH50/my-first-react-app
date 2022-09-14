@@ -22,7 +22,10 @@ function FilmsPage(props) {
 
 let filteredFilms = filterFilmsByDirector(list, searchDirector);
 let directors = getListOf(list, "director");
-//let { total, avg_score, latest } = getFilmStats(list);
+//let { total, avg_score, latest } = getFilmStats(filteredFilms);
+let stats = getFilmStats(filteredFilms)
+console.log(stats);
+
 
   return (
     <div>
@@ -43,7 +46,20 @@ let directors = getListOf(list, "director");
           </select>
         </div>
       </form>
-
+      <div>
+  <div>
+    <span># Of Films</span>
+    <span>{total}</span>
+  </div>
+  <div>
+    <span>Average Rating</span>
+    <span>{avg_score.toFixed(2)}</span>
+  </div>
+  <div>
+    <span>Latest Film</span>
+    <span>{latest}</span>
+  </div>
+</div>
       <ul>
         {filteredFilms.map((film) => (
           <li key={film.id}>
