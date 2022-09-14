@@ -17,5 +17,6 @@ export function getListOf(list, prop) {
 
 export function getFilmStats(list) {
 
-    return list.map(ele => ({avg_score:ele.rt_score}))
+    return list.map(ele => ({avg_score: ele.rt_score, acc_score: ele.rt_score, latest: ele.release_date}))
+    
 }
