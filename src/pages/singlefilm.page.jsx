@@ -3,52 +3,48 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 
 function SingleFilmPage(props) {
+  let [item, setItem] = useState({});
 
-let [item, setItem] = useState({});
+  let { id } = useParams();
 
-    let { id } = useParams();
-
-function getFilm() {
+  function getFilm() {
     fetch(`https://ghibliapi.herokuapp.com/films/${id}`)
-    .then((res) => res.json())
-    .then((film) => setItem(film))
-    .catch((error) => console.error(error));
-}
+      .then((res) => res.json())
+      .then((film) => setItem(film))
+      .catch((error) => console.error(error));
+  }
 
-useEffect(() => {
+  useEffect(() => {
     getFilm();
-}, []);
+  }, []);
 
-    return (
-
+  return (
     <div>
-  <div>
-    <img src={`${item.image}`} alt={`${item.title} Poster`} />
-  </div>
-  <div>
-    <h1>{item.title}</h1>
-    <p>
-      Directed by {item.director}. Produced by {item.producer}.
-    </p>
-    <p>
-      The film was released in <strong>{item.release_date}</strong> and garnered
-      a <strong>{item.rt_score}</strong> aggregate score on{" "}
-      <a
-        href="https://www.rottentomatoes.com/"
-        target="_blank"
-        rel="noreferrer"
-      >
-        Rotten Tomatoes
-      </a>
-      .
-    </p>
-    <h2>Description</h2>
-    <p>{item.description}</p>
-  </div>
-</div>
-    )
+      <div>
+        <img src={`${item.image}`} alt={`${item.title} Poster`} />
+      </div>
+      <div>
+        <h1>{item.title}</h1>
+        <p>
+          Directed by {item.director}. Produced by {item.producer}.
+        </p>
+        <p>
+          The film was released in <strong>{item.release_date}</strong> and
+          garnered a <strong>{item.rt_score}</strong> aggregate score on{" "}
+          <a
+            href="https://www.rottentomatoes.com/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Rotten Tomatoes
+          </a>
+          .
+        </p>
+        <h2>Description</h2>
+        <p>{item.description}</p>
+      </div>
+    </div>
+  );
 }
-
-
 
 export default SingleFilmPage;
