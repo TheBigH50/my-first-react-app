@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { filterFilmsByDirector } from "../helpers/film.helpers";
+import { filterFilmsByDirector, getListOf } from "../helpers/film.helpers";
 
 function FilmsPage(props) {
   let [list, setList] = useState([]);
@@ -17,6 +17,7 @@ function FilmsPage(props) {
   }, []);
 
 let filteredFilms = filterFilmsByDirector(list, searchDirector);
+let directors = getListOf(list, "director")
 
   return (
     <div>
@@ -31,6 +32,9 @@ let filteredFilms = filterFilmsByDirector(list, searchDirector);
             onChange={(e) => setSearchDirector(e.target.value)}
           >
             <option value="">All</option>
+            {directors.map((director) => (
+              <option key={director} value={director}>{director}</option>
+            ))}
           </select>
         </div>
       </form>
