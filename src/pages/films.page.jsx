@@ -41,7 +41,7 @@ let directors = getListOf(list, "director")
       </form>
       <ul>
         {filteredFilms.map((film) => (
-          <li key={film.id}><link to={`film/${film.id}`}>{film.title}</link></li>
+          <li key={film.id}><link to={`film/${film.id}`}></link>{film.title}</li>
         ))}
       </ul>
     </div>
