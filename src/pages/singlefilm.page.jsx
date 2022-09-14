@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -13,6 +14,10 @@ function getFilm() {
     .then((film) => setItem(film))
     .catch((error) => console.error(error));
 }
+
+useEffect(() => {
+    getFilm();
+}, []);
 
     return (
 
