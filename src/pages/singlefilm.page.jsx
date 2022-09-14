@@ -7,6 +7,13 @@ let [item, setItem] = useState({});
 
     let { id } = useParams();
 
+function getFilm() {
+    fetch(`https://ghibliapi.herokuapp.com/films/${id}`)
+    .then((res) => res.json())
+    .then((film) => setItem(film))
+    .catch((error) => console.error(error));
+}
+
     return (
 
     <div>
