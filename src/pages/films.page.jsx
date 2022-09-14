@@ -9,7 +9,10 @@ function FilmsPage(props) {
   function getFilms() {
     fetch("https://ghibliapi.herokuapp.com/films")
       .then((res) => res.json())
-      .then((films) => setList(films))
+      .then((films) => {setList(films);
+         console.log(films)})
+         
+
       .catch((error) => console.error(error));
   }
 
