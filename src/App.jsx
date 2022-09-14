@@ -13,9 +13,6 @@ return(
       <li>
         <NavLink to={"/films"}>Films</NavLink>
       </li>
-      <li>
-        <NavLink to={"film/:id"}>Film</NavLink>
-      </li>
     </ul>
   </nav>
   <Routes>
