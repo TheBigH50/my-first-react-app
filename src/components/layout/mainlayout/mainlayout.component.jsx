@@ -1,7 +1,7 @@
 import { TopNav } from "../topnav/topnav.component";
 import { Container } from "react-bootstrap";
 
-function MainLayout({ className, children }) {
+export default function MainLayout({ className, children }) {
   return (
     <div className={className}>
       <TopNav />

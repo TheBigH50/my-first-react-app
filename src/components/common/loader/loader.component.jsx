@@ -1,6 +1,6 @@
 import "./loader.css";
 
-function Loader({ size }) {
+export default function Loader({ size }) {
   return (
     <svg
       className="loader"
