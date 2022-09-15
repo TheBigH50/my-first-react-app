@@ -5,28 +5,33 @@ import { Link } from "react-router-dom";
 function FilmsPage(props) {
   let [list, setList] = useState([]);
   let [searchDirector, setSearchDirector] = useState("");
+  let [isLoading, setIsLoading] = useState(true);
 
   function getFilms() {
     fetch("https://ghibliapi.herokuapp.com/films")
       .then((res) => res.json())
       .then((films) => {setList(films);
-         console.log(films)})
-         
-
+         console.log(films);
+          setIsLoading(false); })     
       .catch((error) => console.error(error));
+             
   }
 
   useEffect(() => {
     getFilms();
     }, []);
-
+console.log(list, searchDirector);
 let filteredFilms = filterFilmsByDirector(list, searchDirector);
 let directors = getListOf(list, "director");
-//let { total, avg_score, latest } = getFilmStats(filteredFilms);
-let stats = getFilmStats(filteredFilms)
-console.log(stats);
 
 
+if (isLoading) {
+  return <div>
+    <h1>Is Loading...</h1>
+  </div>
+} else {
+  let { total, avg_score, latest } = getFilmStats(filteredFilms);
+  console.log(avg_score);
   return (
     <div>
       <h1>Studio Ghibli Films</h1>
@@ -68,6 +73,7 @@ console.log(stats);
       </ul>
     </div>
   );
+}
 }
 
 export default FilmsPage;

@@ -4,20 +4,25 @@ import { useParams } from "react-router-dom";
 
 function SingleFilmPage(props) {
   let [item, setItem] = useState({});
-
+  let [isLoading, setIsLoading] = useState(true);
   let { id } = useParams();
 
   function getFilm() {
     fetch(`https://ghibliapi.herokuapp.com/films/${id}`)
       .then((res) => res.json())
-      .then((film) => setItem(film))
-      .catch((error) => console.error(error));
+      .then((film) => {setItem(film); setIsLoading(false);})
+      .catch((error) => console.error(error));      
   }
 
   useEffect(() => {
     getFilm();
   }, []);
 
+  if (isLoading) {
+    <div>
+      <h1>Is Loading...</h1>
+    </div>
+  } else {
   return (
     <div>
       <div>
@@ -45,6 +50,7 @@ function SingleFilmPage(props) {
       </div>
     </div>
   );
+}
 }
 
 export default SingleFilmPage;
