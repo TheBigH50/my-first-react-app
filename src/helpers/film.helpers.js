@@ -17,7 +17,7 @@ export function getListOf(list, prop) {
 
 export function getFilmStats(list) {
   //let acc_score = list.reduce((sum, film) => sum + parseInt(film.rt_score), 0);
-console.log(list);
+  console.log(list);
   // let total = list.length;
 
   // let avg_score = acc_score / total;
@@ -30,7 +30,7 @@ console.log(list);
       if (!stats.latest || stats.latest < film.release_date) {
         stats.latest = film.release_date;
       }
-console.log(idx, arr.length);
+      console.log(idx, arr.length);
       // If this film is the last film
       if (idx == arr.length - 1) {
         stats.avg_score = stats.acc_score / stats.total;

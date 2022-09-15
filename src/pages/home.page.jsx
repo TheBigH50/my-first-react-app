@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-
 function HomePage(props) {
   let [list, setList] = useState(["ready", "set", "GO"]);
   let [text, setText] = useState("");
