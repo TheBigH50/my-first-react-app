@@ -1,5 +1,5 @@
 import { BrowserRouter, NavLink, Routes, Route } from "react-router-dom";
-import { HomePage, FilmsPage, SingleFilmPage } from "./pages";
+import { HomePage, FilmsPage, SingleFilmPage } from "../pages";
 
 function App(props) {
   return (
