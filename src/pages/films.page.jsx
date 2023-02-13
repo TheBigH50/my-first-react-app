@@ -8,7 +8,7 @@ function FilmsPage(props) {
   let [isLoading, setIsLoading] = useState(true);
 
   function getFilms() {
-    fetch("https://ghibliapi.herokuapp.com/films")
+    fetch("https://studioghibliapi-d6fc8.web.app/films")
       .then((res) => res.json())
       .then((films) => {setList(films);
          console.log(films);
